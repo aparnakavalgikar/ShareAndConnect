@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Items</h1>
+  <hr/>
+
+  <form class="well" (submit)="addItem($event)">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="title" name="title" class="form-control" placeholder="Add Items">
+    </div>
+  </form>
+
+  <div class="items-list">
+    <div *ngFor="let item of items">
+      <div class="col-md-1">
+        <input type="checkbox" [checked]="item.isAvailable" (click)="updateItem(item)">
+      </div>
+      <div class="col-md-7">
+        {{item.title}}
+      </div>
+      <div class="col-md-4">
+        <input type="button" (click)="deleteItem(item._id)" value="Delete" class="btn btn-danger">
+      </div>
+    </div>
+  </div>
+</div>
